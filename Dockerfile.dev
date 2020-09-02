@@ -1,0 +1,15 @@
+FROM node:alpine
+
+EXPOSE 3000
+
+WORKDIR /app
+
+COPY package.json package-lock*.json ./
+
+RUN npm install && npm install -g pushstate-server && npm cache clean --force
+
+COPY . .
+
+RUN npm run build
+
+CMD ["npm", "run", "start:dev"]
