@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 import store from "./redux";
 import Upload from "./components/upload/Upload";
 
-type Props = {}
+type Props = {};
 
 const App: FC<Props> = () => {
   return (
