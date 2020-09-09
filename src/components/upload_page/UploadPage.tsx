@@ -1,11 +1,31 @@
 import * as React from "react";
-import {FC, memo} from "react";
-import DragAndDropInput from "./components/drag_and_drop_input/DragAndDropInput";
+import {FC, memo, useEffect} from "react";
+import {StoreState} from "../../redux/rootReducer";
+import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
+import ImagesActions from "../../redux/images/actions";
 
-type Props = {
+type StateProps = {}
 
+type DispatchProps = {
+    fetchImages: typeof ImagesActions.fetchImages
 }
 
-const UploadPage: FC<Props> = () => <><span>Drop or Select your file here!</span><DragAndDropInput /></>
+type Props = {} & DispatchProps;
 
-export default memo(UploadPage);
+const UploadPage: FC<Props> = ({fetchImages}) => {
+    useEffect(() => {
+        fetchImages();
+    }, [fetchImages]);
+
+    return <span>hey!</span>
+}
+
+const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
+
+});
+
+const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = {
+    fetchImages: ImagesActions.fetchImages
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(UploadPage));

@@ -9,7 +9,7 @@ import {
 import { Provider } from 'react-redux';
 
 import store from "./redux";
-import Upload from "./components/upload/Upload";
+import UploadPage from "./components/upload_page/UploadPage";
 
 type Props = {};
 
@@ -18,7 +18,7 @@ const App: FC<Props> = () => {
       <Provider store={store}>
         <Router>
             <Route path="/" exact>
-                <Upload />
+                <UploadPage />
             </Route>
         </Router>
       </Provider>
