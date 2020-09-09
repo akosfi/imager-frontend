@@ -6,6 +6,6 @@ type Props = {
 
 }
 
-const Upload: FC<Props> = () => <><span>Drop or Select your file here!</span><DragAndDropInput /></>
+const UploadPage: FC<Props> = () => <><span>Drop or Select your file here!</span><DragAndDropInput /></>
 
-export default memo(Upload);
+export default memo(UploadPage);
