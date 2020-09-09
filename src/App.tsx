@@ -9,7 +9,7 @@ import {
 import { Provider } from 'react-redux';
 
 import store from "./redux";
-import UploadPage from "./components/upload_page/UploadPage";
+import UploadPage from "./components/pages/upload_page/UploadPage";
 
 type Props = {};
 

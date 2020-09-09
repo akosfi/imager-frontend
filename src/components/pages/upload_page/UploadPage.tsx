@@ -1,8 +1,8 @@
 import * as React from "react";
 import {FC, memo, useEffect} from "react";
-import {StoreState} from "../../redux/rootReducer";
+import {StoreState} from "../../../redux/rootReducer";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
-import ImagesActions from "../../redux/images/actions";
+import ImagesActions from "../../../redux/images/actions";
 
 type StateProps = {}
 
