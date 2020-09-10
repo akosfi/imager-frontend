@@ -12,7 +12,7 @@ type DispatchProps = {
 
 type Props = {} & DispatchProps;
 
-const UploadPage: FC<Props> = ({fetchImages}) => {
+const HomePage: FC<Props> = ({fetchImages}) => {
     useEffect(() => {
         fetchImages();
     }, [fetchImages]);
@@ -28,4 +28,4 @@ const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = {
     fetchImages: ImagesActions.fetchImages
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(UploadPage));
+export default connect(mapStateToProps, mapDispatchToProps)(memo(HomePage));
