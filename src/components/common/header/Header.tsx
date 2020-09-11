@@ -3,7 +3,7 @@ import {FC, memo} from "react";
 import {StoreState} from "../../../redux/rootReducer";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 
-const css = require("./Header.mod.scss");
+const css = require("./Header.module.scss");
 
 type StateProps = {}
 
@@ -16,9 +16,16 @@ const Header: FC<Props> = () => {
 
     return (
         <div className={css["Header"]}>
-            <div>Logo</div>
-            <div>
-                asd
+            <div className={css["logo"]}>
+                <span className={css["placeholder"]}>Logo</span>
+            </div>
+            <div className={css["button-container"]}>
+                <div className={css["button"]}>
+                    Sign Up
+                </div>
+                <div className={css["button"]}>
+                    Sign Up
+                </div>
             </div>
         </div>
     );

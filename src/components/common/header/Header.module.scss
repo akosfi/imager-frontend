@@ -1,0 +1,31 @@
+.Header {
+  height: 64px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  background: #34295E;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .placeholder {
+      display: block;
+      width: 120px;
+      height: 30px;
+      background: burlywood;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .button {
+      background: white;
+      width: 200px;
+      display: block;
+    }
+  }
+
+}

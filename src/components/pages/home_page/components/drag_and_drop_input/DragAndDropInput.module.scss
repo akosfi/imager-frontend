@@ -1,0 +1,46 @@
+.DragAndDropInput{
+  height: 504px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .container {
+    background: #EEEEEE;
+    height: 360px;
+    width: 480px;
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .inner {
+      width: 384px;
+      height: 288px;
+      background: white;
+      border-radius: 10px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .icon,
+      .text {
+        //display: block;
+        font-weight: bold;
+      }
+
+      .icon {
+        font-size: 128px;
+      }
+      .text {
+        font-size: 18px;
+      }
+    }
+  }
+}

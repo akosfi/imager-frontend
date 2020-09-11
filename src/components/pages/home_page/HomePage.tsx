@@ -3,6 +3,8 @@ import {FC, memo, useEffect} from "react";
 import {StoreState} from "../../../redux/rootReducer";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 import ImagesActions from "../../../redux/images/actions";
+import DragAndDropInput from "./components/drag_and_drop_input/DragAndDropInput";
+import SnackBar, {SnackBarIconType, SnackBarType} from "../../common/snackbar/SnackBar";
 
 type StateProps = {}
 
@@ -17,7 +19,7 @@ const HomePage: FC<Props> = ({fetchImages}) => {
         fetchImages();
     }, [fetchImages]);
 
-    return <span>hey!</span>
+    return <><DragAndDropInput /></>
 }
 
 const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
