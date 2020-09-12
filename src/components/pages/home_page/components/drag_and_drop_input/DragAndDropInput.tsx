@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ChangeEvent, FC, memo} from "react";
+import {ChangeEvent, FC, memo, useEffect} from "react";
 import ImagesActions from "../../../../../redux/images/actions";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 import {UploadState} from "../../../../../redux/images/types";
@@ -20,7 +20,6 @@ type DispatchProps = {
 type Props = StateProps & DispatchProps;
 
 const DragAndDropInput: FC<Props> = ({uploadImages, uploadState}) => {
-
     const onFileUploadEvent = (event: ChangeEvent<HTMLInputElement>) => {
         const input = event.target;
         if(!input.files) return;

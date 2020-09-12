@@ -6,6 +6,7 @@ import ImagesActions from "../../../../../redux/images/actions";
 import {Image} from "../../../../../redux/types";
 import {getImages} from "../../../../../redux/images/selectors";
 import ImageContainerItem from "../image_container_item/ImageContainerItem";
+import useWindowResize from "../../../../../utils/hooks/useWindowResize";
 
 const css = require("./ImageContainer.module.scss");
 
@@ -24,7 +25,6 @@ const ImageContainer: FC<Props> = ({fetchImages, images}) => {
         fetchImages();
     }, [fetchImages]);
 
-    //TODO MOVE numberofColumns to state
     const renderImagesForColumn = (columnIndex: number, numberOfColumns: number) => {
         const filteredArray: Image[] = [];
 
