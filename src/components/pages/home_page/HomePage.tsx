@@ -4,22 +4,22 @@ import {StoreState} from "../../../redux/rootReducer";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 import ImagesActions from "../../../redux/images/actions";
 import DragAndDropInput from "./components/drag_and_drop_input/DragAndDropInput";
-import SnackBar, {SnackBarIconType, SnackBarType} from "../../common/snackbar/SnackBar";
+import ImageContainer from "./components/image_container/ImageContainer";
 
 type StateProps = {}
 
 type DispatchProps = {
-    fetchImages: typeof ImagesActions.fetchImages
 }
 
 type Props = {} & DispatchProps;
 
-const HomePage: FC<Props> = ({fetchImages}) => {
-    useEffect(() => {
-        fetchImages();
-    }, [fetchImages]);
+const HomePage: FC<Props> = ({}) => {
 
-    return <><DragAndDropInput /></>
+
+    return (<>
+        <DragAndDropInput />
+        <ImageContainer />
+        </>);
 }
 
 const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
@@ -27,7 +27,6 @@ const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = {
-    fetchImages: ImagesActions.fetchImages
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(HomePage));

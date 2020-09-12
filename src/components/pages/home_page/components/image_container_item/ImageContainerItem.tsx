@@ -1,33 +1,23 @@
 import * as React from "react";
 import {FC, memo} from "react";
-import {StoreState} from "../../../../../redux/rootReducer";
-import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 
-const css = require("./Header.mod.scss");
+const css = require("./ImageContainerItem.module.scss");
 
-type StateProps = {}
 
-type DispatchProps = {
+type OwnProps = {
+    url: string;
 }
 
-type Props = {} & DispatchProps;
+type Props = OwnProps;
 
-const ImageContainerItem: FC<Props> = () => {
-
+const ImageContainerItem: FC<Props> = ({url}) => {
     return (
-        <div>
-            <div>ImageContainer</div>
-            <div>
+        <div className={css["ImageContainerItem"]}>
+            <div className={css["wrapper"]}>
+                <img src={url} alt=""/>
             </div>
         </div>
     );
 }
 
-const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
-
-});
-
-const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = {
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(memo(ImageContainerItem));
+export default memo(ImageContainerItem);

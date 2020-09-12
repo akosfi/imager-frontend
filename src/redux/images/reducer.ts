@@ -1,7 +1,7 @@
 import {ImagesConstants, ImagesState} from "./types";
 
 export const initialState: ImagesState = {
-    imageIds: []
+    images: []
 }
 export function imagesReducer(
     state = initialState,
@@ -10,7 +10,8 @@ export function imagesReducer(
     switch (action.type) {
         case ImagesConstants.LOAD_IMAGES:
             return {
-                imageIds: [1,2]
+                ...state,
+                images: action.payload.images
             }
         default:
             return state

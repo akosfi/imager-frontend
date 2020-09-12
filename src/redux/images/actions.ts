@@ -1,6 +1,7 @@
 import {ImagesConstants} from "./types";
+import {Image} from "../types";
 
-const loadImages = (images: any) => ({
+const loadImages = (images: Image[]) => ({
     type: ImagesConstants.LOAD_IMAGES,
     payload: {
         images
