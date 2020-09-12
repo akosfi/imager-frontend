@@ -1,7 +1,8 @@
 import {ImagesConstants, ImagesState} from "./types";
 
 export const initialState: ImagesState = {
-    images: []
+    images: [],
+    selectedImages: []
 }
 export function imagesReducer(
     state = initialState,
