@@ -22,7 +22,6 @@ const Header: FC<Props> = () => {
             </div>
             <div className={css["button-container"]}>
                 <Button title={"Sign In"} />
-                <Button title={"Sign Up"} />
             </div>
         </div>
     );

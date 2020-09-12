@@ -1,10 +1,28 @@
 .ImageContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 24px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 
-  .column {
-    width: 100%;
+  .inner {
+    display: grid;
+
+    $grid-image-width: 304px;
+
+    grid-template-columns: $grid-image-width;
+    grid-column-gap: 24px;
+
+    .column {
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, $grid-image-width);
+    }
+
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, $grid-image-width);
+    }
   }
+
 
 }

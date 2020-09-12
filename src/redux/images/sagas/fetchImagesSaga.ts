@@ -13,7 +13,7 @@ const mockImages: Image[] = [
         createdAt: new Date().toString()
     },
     {
-        url: "https://lh3.googleusercontent.com/proxy/nzDZi6o7Ico8ac90f6-coNuNQ7g_LuYobWI3oSzfiblXjmRGFraf7v3_C_xRtrr2UcXIP9RxV-WZwd3rDIVA_GIQod0-CBBgm2IIVnOtYd830gaIm-hN2RVHhHRmG3EqhFbQdGALtvvM0-xQAw",
+        url: "https://images.squarespace-cdn.com/content/v1/53cfc1dce4b01ee22a512a92/1450151098815-NJNUMTPFUQ0NJVJSXY3B/ke17ZwdGBToddI8pDm48kJoYEb5S8OhMLjKh6plxP457gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmQPoRzxSr1hzN-vPBHt7YyNobfn3lQW19A4S7jdttn8pGGlHiDaNzPkNjwUfhD5bM/image-asset.jpeg",
         createdAt: new Date().toString()
     },
     {
@@ -30,7 +30,7 @@ const mockImages: Image[] = [
         createdAt: new Date().toString()
     },
     {
-        url: "https://lh3.googleusercontent.com/proxy/nzDZi6o7Ico8ac90f6-coNuNQ7g_LuYobWI3oSzfiblXjmRGFraf7v3_C_xRtrr2UcXIP9RxV-WZwd3rDIVA_GIQod0-CBBgm2IIVnOtYd830gaIm-hN2RVHhHRmG3EqhFbQdGALtvvM0-xQAw",
+        url: "https://images.squarespace-cdn.com/content/v1/53cfc1dce4b01ee22a512a92/1450151098815-NJNUMTPFUQ0NJVJSXY3B/ke17ZwdGBToddI8pDm48kJoYEb5S8OhMLjKh6plxP457gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmQPoRzxSr1hzN-vPBHt7YyNobfn3lQW19A4S7jdttn8pGGlHiDaNzPkNjwUfhD5bM/image-asset.jpeg",
         createdAt: new Date().toString()
     },
     {
@@ -47,7 +47,7 @@ const mockImages: Image[] = [
         createdAt: new Date().toString()
     },
     {
-        url: "https://lh3.googleusercontent.com/proxy/nzDZi6o7Ico8ac90f6-coNuNQ7g_LuYobWI3oSzfiblXjmRGFraf7v3_C_xRtrr2UcXIP9RxV-WZwd3rDIVA_GIQod0-CBBgm2IIVnOtYd830gaIm-hN2RVHhHRmG3EqhFbQdGALtvvM0-xQAw",
+        url: "https://images.squarespace-cdn.com/content/v1/53cfc1dce4b01ee22a512a92/1450151098815-NJNUMTPFUQ0NJVJSXY3B/ke17ZwdGBToddI8pDm48kJoYEb5S8OhMLjKh6plxP457gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmQPoRzxSr1hzN-vPBHt7YyNobfn3lQW19A4S7jdttn8pGGlHiDaNzPkNjwUfhD5bM/image-asset.jpeg",
         createdAt: new Date().toString()
     },
     {
@@ -64,7 +64,7 @@ const mockImages: Image[] = [
         createdAt: new Date().toString()
     },
     {
-        url: "https://lh3.googleusercontent.com/proxy/nzDZi6o7Ico8ac90f6-coNuNQ7g_LuYobWI3oSzfiblXjmRGFraf7v3_C_xRtrr2UcXIP9RxV-WZwd3rDIVA_GIQod0-CBBgm2IIVnOtYd830gaIm-hN2RVHhHRmG3EqhFbQdGALtvvM0-xQAw",
+        url: "https://images.squarespace-cdn.com/content/v1/53cfc1dce4b01ee22a512a92/1450151098815-NJNUMTPFUQ0NJVJSXY3B/ke17ZwdGBToddI8pDm48kJoYEb5S8OhMLjKh6plxP457gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmQPoRzxSr1hzN-vPBHt7YyNobfn3lQW19A4S7jdttn8pGGlHiDaNzPkNjwUfhD5bM/image-asset.jpeg",
         createdAt: new Date().toString()
     },
     {
@@ -81,7 +81,7 @@ const mockImages: Image[] = [
         createdAt: new Date().toString()
     },
     {
-        url: "https://lh3.googleusercontent.com/proxy/nzDZi6o7Ico8ac90f6-coNuNQ7g_LuYobWI3oSzfiblXjmRGFraf7v3_C_xRtrr2UcXIP9RxV-WZwd3rDIVA_GIQod0-CBBgm2IIVnOtYd830gaIm-hN2RVHhHRmG3EqhFbQdGALtvvM0-xQAw",
+        url: "https://images.squarespace-cdn.com/content/v1/53cfc1dce4b01ee22a512a92/1450151098815-NJNUMTPFUQ0NJVJSXY3B/ke17ZwdGBToddI8pDm48kJoYEb5S8OhMLjKh6plxP457gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmQPoRzxSr1hzN-vPBHt7YyNobfn3lQW19A4S7jdttn8pGGlHiDaNzPkNjwUfhD5bM/image-asset.jpeg",
         createdAt: new Date().toString()
     },
     {
@@ -98,7 +98,7 @@ const mockImages: Image[] = [
         createdAt: new Date().toString()
     },
     {
-        url: "https://lh3.googleusercontent.com/proxy/nzDZi6o7Ico8ac90f6-coNuNQ7g_LuYobWI3oSzfiblXjmRGFraf7v3_C_xRtrr2UcXIP9RxV-WZwd3rDIVA_GIQod0-CBBgm2IIVnOtYd830gaIm-hN2RVHhHRmG3EqhFbQdGALtvvM0-xQAw",
+        url: "https://images.squarespace-cdn.com/content/v1/53cfc1dce4b01ee22a512a92/1450151098815-NJNUMTPFUQ0NJVJSXY3B/ke17ZwdGBToddI8pDm48kJoYEb5S8OhMLjKh6plxP457gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmQPoRzxSr1hzN-vPBHt7YyNobfn3lQW19A4S7jdttn8pGGlHiDaNzPkNjwUfhD5bM/image-asset.jpeg",
         createdAt: new Date().toString()
     },
     {

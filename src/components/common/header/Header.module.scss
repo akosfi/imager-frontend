@@ -1,12 +1,13 @@
 .Header {
   height: 64px;
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: repeat(2, 1fr);
   background: #34295E;
 
   .logo {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 24px;
     align-items: center;
 
     .text {

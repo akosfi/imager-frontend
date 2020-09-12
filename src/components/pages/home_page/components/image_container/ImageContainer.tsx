@@ -24,10 +24,8 @@ const ImageContainer: FC<Props> = ({fetchImages, images}) => {
         fetchImages();
     }, [fetchImages]);
 
-
-    const numberOfColumns = 3;
-
-    const renderImagesForColumn = (columnIndex: number) => {
+    //TODO MOVE numberofColumns to state
+    const renderImagesForColumn = (columnIndex: number, numberOfColumns: number) => {
         const filteredArray: Image[] = [];
 
         for(let i = columnIndex; i < images.length; i=i+numberOfColumns) {
@@ -37,20 +35,46 @@ const ImageContainer: FC<Props> = ({fetchImages, images}) => {
         return filteredArray.map(({url}) => <ImageContainerItem url={url} />)
     }
 
+    const renderImageGridColumn = (columnIndex: number, numberOfColumns: number) =>
+        <div className={css["column"]}>
+            {renderImagesForColumn(columnIndex, numberOfColumns)}
+        </div>
+
+    const renderImageGridColumns = () => {
+        const screenWidth = window.screen.width;
+
+        if(screenWidth >= 992) {
+            return (
+                <>
+                    {renderImageGridColumn(0, 3)}
+                    {renderImageGridColumn(1, 3)}
+                    {renderImageGridColumn(2, 3)}
+                </>
+            );
+        }
+        if(screenWidth >= 768) {
+            return (
+                <>
+                    {renderImageGridColumn(0, 2)}
+                    {renderImageGridColumn(1, 2)}
+                </>
+            );
+        }
+
+        return (
+            <>
+                {renderImageGridColumn(0, 1)}
+            </>
+        );
+
+
+    }
+
     return (
         <div className={css["ImageContainer"]}>
-            <div className={css["column"]}>
-                {renderImagesForColumn(0)}
+            <div className={css["inner"]}>
+                {renderImageGridColumns()}
             </div>
-
-            <div className={css["column"]}>
-                {renderImagesForColumn(1)}
-            </div>
-
-            <div className={css["column"]}>
-                {renderImagesForColumn(2)}
-            </div>
-
         </div>
     );
 }

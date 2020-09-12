@@ -5,6 +5,7 @@ import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 import ImagesActions from "../../../redux/images/actions";
 import DragAndDropInput from "./components/drag_and_drop_input/DragAndDropInput";
 import ImageContainer from "./components/image_container/ImageContainer";
+import LoadingSpinner from "../../common/loading_spinner/LoadingSpinner";
 
 type StateProps = {}
 
@@ -15,11 +16,13 @@ type Props = {} & DispatchProps;
 
 const HomePage: FC<Props> = ({}) => {
 
-
-    return (<>
-        <DragAndDropInput />
-        <ImageContainer />
-        </>);
+    return (
+        <>
+            <DragAndDropInput />
+            <LoadingSpinner />
+            <ImageContainer />
+        </>
+    );
 }
 
 const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({

@@ -1,9 +1,7 @@
 import * as React from "react";
 import {ChangeEvent, FC, memo} from "react";
-import {get} from "lodash";
 import ImagesActions from "../../../../../redux/images/actions";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
-import {StoreState} from "../../../../../redux/rootReducer";
 
 const css = require("./DragAndDropInput.module.scss");
 
