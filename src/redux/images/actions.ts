@@ -12,10 +12,13 @@ const fetchImages = () => ({type: ImagesConstants.FETCH_IMAGES});
 
 const uploadImage = (image: File) => ({type: ImagesConstants.UPLOAD_IMAGE, payload: {image}});
 
+const addImage = (image: Image) => ({type: ImagesConstants.ADD_IMAGE, payload: {image}});
+
 const ImagesActions = {
     loadImages,
     fetchImages,
-    uploadImage
+    uploadImage,
+    addImage
 }
 
 export default ImagesActions;
