@@ -1,0 +1,16 @@
+.Button {
+  padding: 0 24px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid #FFFFFF;
+  border-radius: 8px;
+  background: #34295E;
+  cursor: pointer;
+
+  .title {
+    color: white;
+    font-weight: bold;
+  }
+}

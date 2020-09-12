@@ -9,11 +9,11 @@
     justify-content: center;
     align-items: center;
 
-    .placeholder {
-      display: block;
-      width: 120px;
-      height: 30px;
-      background: burlywood;
+    .text {
+      display: inline-block;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
     }
   }
 
@@ -21,11 +21,12 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    .button {
-      background: white;
-      width: 200px;
-      display: block;
+
+    & > div {
+      margin-right: 24px;
     }
+
+
   }
 
 }
