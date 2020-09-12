@@ -1,4 +1,4 @@
-import {ImagesConstants} from "./types";
+import {ImagesConstants, UploadState} from "./types";
 import {Image} from "../types";
 
 const loadImages = (images: Image[]) => ({
@@ -14,11 +14,15 @@ const uploadImage = (image: File) => ({type: ImagesConstants.UPLOAD_IMAGE, paylo
 
 const addImage = (image: Image) => ({type: ImagesConstants.ADD_IMAGE, payload: {image}});
 
+const setUploadState = (uploadState: UploadState) => ({type: ImagesConstants.SET_UPLOAD_STATE, payload: {uploadState}});
+
+
 const ImagesActions = {
     loadImages,
     fetchImages,
     uploadImage,
-    addImage
+    addImage,
+    setUploadState
 }
 
 export default ImagesActions;

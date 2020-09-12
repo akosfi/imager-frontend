@@ -19,7 +19,6 @@ const HomePage: FC<Props> = ({}) => {
     return (
         <>
             <DragAndDropInput />
-            <LoadingSpinner />
             <ImageContainer />
         </>
     );

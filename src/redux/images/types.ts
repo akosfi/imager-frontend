@@ -5,8 +5,16 @@ export enum ImagesConstants {
     FETCH_IMAGES = "IMAGES/FETCH_IMAGES",
     UPLOAD_IMAGE = "IMAGES/UPLOAD_IMAGE",
     ADD_IMAGE = "IMAGES/ADD_IMAGE",
+    SET_UPLOAD_STATE = "IMAGES/SET_UPLOAD_STATE",
+}
+
+export enum UploadState {
+    INITIAL,
+    UPLOADING,
+    UPLOADED
 }
 
 export type ImagesState = {
-    images: Image[]
+    images: Image[],
+    uploadState: UploadState
 }

@@ -1,7 +1,8 @@
-import {ImagesConstants, ImagesState} from "./types";
+import {ImagesConstants, ImagesState, UploadState} from "./types";
 
 export const initialState: ImagesState = {
-    images: []
+    images: [],
+    uploadState: UploadState.UPLOADING
 }
 export function imagesReducer(
     state = initialState,
@@ -13,10 +14,17 @@ export function imagesReducer(
                 ...state,
                 images: [...state.images, ...action.payload.images]
             }
+
         case ImagesConstants.ADD_IMAGE:
             return {
                 ...state,
                 images: [action.payload.image, ...state.images]
+            }
+
+        case ImagesConstants.SET_UPLOAD_STATE:
+            return {
+                ...state,
+                uploadState: action.payload.uploadState
             }
         default:
             return state
