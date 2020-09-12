@@ -11,12 +11,12 @@ export function imagesReducer(
         case ImagesConstants.LOAD_IMAGES:
             return {
                 ...state,
-                images: [state.images, action.payload.images]
+                images: [...state.images, ...action.payload.images]
             }
         case ImagesConstants.ADD_IMAGE:
             return {
                 ...state,
-                images: [action.payload.image, state.images]
+                images: [action.payload.image, ...state.images]
             }
         default:
             return state
