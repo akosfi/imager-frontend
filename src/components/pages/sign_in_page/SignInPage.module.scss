@@ -1,0 +1,17 @@
+.SignInPage {
+  display: flex;
+  justify-content: center;
+
+  .inner {
+    width: 290px;
+
+    @media (min-width: 768px) {
+      width: 480px;
+    }
+
+    .input-wrapper{
+      margin-top: 24px;
+    }
+  }
+
+}

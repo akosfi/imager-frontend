@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import store from "./redux";
 import HomePage from "./components/pages/home_page/HomePage";
 import Header from "./components/common/header/Header";
+import SignInPage from "./components/pages/sign_in_page/SignInPage";
 
 type Props = {};
 
@@ -20,6 +21,9 @@ const App: FC<Props> = () => {
             <Header />
             <Route path="/" exact>
                 <HomePage />
+            </Route>
+            <Route path="/sign-in" exact>
+                <SignInPage />
             </Route>
         </Router>
       </Provider>
