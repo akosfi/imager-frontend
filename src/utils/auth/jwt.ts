@@ -8,10 +8,14 @@ export const setAuthorizationHeader = () => {
     uploaderApi.defaults.headers.common['Authorization'] = bearerHeader;
 }
 
+export const setJWTToken = (token: string) => {
+    localStorage.setItem("jwt", token);
+}
+
 export const refreshJWTToken = async () => {
     try {
         const { token } = await uploaderApi.get("/refresh");
-        localStorage.setItem("jwt", token);
+        setJWTToken(token);
         setAuthorizationHeader();
     }
     catch (err) {
