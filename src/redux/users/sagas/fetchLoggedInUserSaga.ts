@@ -6,8 +6,9 @@ import UsersActions from "../actions";
 
 function* fetchLoggedInUserSaga() {
     try {
-        const user: User = yield call(uploaderApi.get, '/me');
+        const { data: {user}} = yield call(uploaderApi.get, '/me');
         yield put(UsersActions.loadUser(user));
+        yield put(UsersActions.setIsUsedLoggedIn(true));
     }
     catch(err){
         printSagaError(err);

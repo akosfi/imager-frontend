@@ -4,17 +4,21 @@ import {StoreState} from "../../../redux/rootReducer";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 import Button from "../button/Button";
 import {Link} from "react-router-dom";
+import {getIsUserLoggedIn, getUser} from "../../../redux/users/selectors";
+import {User} from "../../../redux/users/types";
 
 const css = require("./Header.module.scss");
 
-type StateProps = {}
-
-type DispatchProps = {
+type StateProps = {
+    user: User | null;
+    isUsedLoggedIn: boolean;
 }
 
-type Props = {} & DispatchProps;
+type Props = StateProps;
 
-const Header: FC<Props> = () => {
+const Header: FC<Props> = ({user, isUsedLoggedIn }) => {
+
+    const isUserAuthenticated = isUsedLoggedIn && !!user;
 
     return (
         <div className={css["Header"]}>
@@ -24,19 +28,26 @@ const Header: FC<Props> = () => {
                 </Link>
             </div>
             <div className={css["button-container"]}>
-                <Link to={"/sign-in"}>
-                    <Button title={"Sign In"} />
-                </Link>
+                {!isUserAuthenticated ?
+                    <>
+                        <Link to={"/sign-in"}>
+                            <Button title={"Sign In"} />
+                        </Link>
+                        <Link to={"/sign-up"}>
+                            <Button title={"Sign Up"} />
+                        </Link>
+                    </>
+                    :
+                    <><span className={css["user-name"]}>{user?.email}</span></>}
             </div>
         </div>
     );
 }
 
 const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
-
+    user: getUser(state),
+    isUsedLoggedIn: getIsUserLoggedIn(state)
 });
 
-const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = {
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(Header));
+export default connect(mapStateToProps)(memo(Header));

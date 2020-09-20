@@ -7,7 +7,7 @@ import UsersActions from "../actions";
 
 function* registerUserSaga({payload: {email, password}}: ReturnType<typeof UsersActions.loginUser>) {
     try {
-        const { token } = yield call(uploaderApi.post, '/register', {
+        const {data: { token }} = yield call(uploaderApi.post, '/register', {
             email,
             password
         });

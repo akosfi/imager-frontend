@@ -10,17 +10,17 @@ export const setAuthorizationHeader = () => {
 
 export const setJWTToken = (token: string) => {
     localStorage.setItem("jwt", token);
+    setAuthorizationHeader();
 }
 
 export const refreshJWTToken = async () => {
     try {
-        const { token } = await uploaderApi.get("/refresh");
+        const { data: { token } } = await uploaderApi.get("/refresh");
         setJWTToken(token);
-        setAuthorizationHeader();
     }
     catch (err) {
         console.log(err);
     }
 }
 
-export const setJWTRefreshTimeout = () => setInterval(async () => await refreshJWTToken(), 5000);
+export const setJWTRefreshTimeout = () => setInterval(async () => await refreshJWTToken(), 500000);

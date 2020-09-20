@@ -15,6 +15,8 @@ import {setAuthorizationHeader, setJWTRefreshTimeout} from "./utils/auth/jwt";
 import {StoreState} from "./redux/rootReducer";
 import {User} from "./redux/users/types";
 import {getIsUserLoggedIn, getUser} from "./redux/users/selectors";
+import PrivateRoute from "./components/common/private_route/PrivateRoute";
+import SignUpPage from "./components/pages/sign_up_page/SignUpPage";
 
 type StateProps = {
     user: User | null;
@@ -29,6 +31,7 @@ type Props = StateProps & DispatchProps;
 
 const App: FC<Props> = ({fetchLoggedInUser, user, isUserLoggedIn}) => {
     useEffect(() => {
+        setAuthorizationHeader();
         fetchLoggedInUser();
     }, [fetchLoggedInUser])
 
@@ -39,23 +42,42 @@ const App: FC<Props> = ({fetchLoggedInUser, user, isUserLoggedIn}) => {
         }
     }, [isUserLoggedIn, user]);
 
+    const isAuthenticated = !!user && isUserLoggedIn;
 
     return (
         <Router>
             <Header />
-            <Route path="/" exact>
+            <PrivateRoute
+                path='/'
+                redirectPath={'/sign-in'}
+                exact
+                guard={isAuthenticated}
+            >
                 <HomePage />
-            </Route>
-            <Route path="/sign-in" exact>
+            </PrivateRoute>
+            <PrivateRoute
+                path='/sign-in'
+                redirectPath={'/'}
+                exact
+                guard={!isAuthenticated}
+            >
                 <SignInPage />
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute
+                path='/sign-up'
+                redirectPath={'/'}
+                exact
+                guard={!isAuthenticated}
+            >
+                <SignUpPage />
+            </PrivateRoute>
         </Router>
     );
 }
 
 const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
     user: getUser(state),
-    isUserLoggedIn: getIsUserLoggedIn(state)
+    isUserLoggedIn: getIsUserLoggedIn(state),
 });
 
 

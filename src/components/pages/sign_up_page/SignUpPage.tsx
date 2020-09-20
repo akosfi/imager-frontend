@@ -2,28 +2,26 @@ import * as React from "react";
 import {FC, memo, useState} from "react";
 import {StoreState} from "../../../redux/rootReducer";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
-import TextInput from "../../common/inputs/text_input/TextInput";
-import Button from "../../common/button/Button";
 import UsersActions from "../../../redux/users/actions";
 
-const css = require("./SignInPage.module.scss");
+const css = require("./SignUpPage.module.scss");
 
 type StateProps = {}
 
 type DispatchProps = {
-    loginUser: typeof UsersActions.loginUser;
+    registerUser: typeof UsersActions.registerUser;
 }
 
 type Props = StateProps & DispatchProps;
 
-const SignInPage: FC<Props> = ({loginUser}) => {
+const SignUpPage: FC<Props> = ({registerUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = () => loginUser(email, password);
+    const handleRegistration = () => registerUser(email, password);
 
     return (
-        <div className={css["SignInPage"]}>
+        <div className={css["SignUpPage"]}>
             <div className={css["inner"]}>
                 <div className={css["input-wrapper"]}>
                     <input
@@ -42,7 +40,7 @@ const SignInPage: FC<Props> = ({loginUser}) => {
                     />
                 </div>
                 <div className={css["input-wrapper"]}>
-                    <button onClick={handleLogin}><span className={css["title"]}>Sign In</span></button>
+                    <button onClick={handleRegistration}><span className={css["title"]}>Sign Up</span></button>
                 </div>
             </div>
         </div>
@@ -54,7 +52,7 @@ const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = {
-    loginUser: UsersActions.loginUser
+    registerUser: UsersActions.registerUser
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(SignInPage));
+export default connect(mapStateToProps, mapDispatchToProps)(memo(SignUpPage));
