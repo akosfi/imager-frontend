@@ -2,7 +2,7 @@ import {ImagesConstants, ImagesState, UploadState} from "./types";
 
 export const initialState: ImagesState = {
     images: [],
-    uploadState: UploadState.UPLOADING
+    uploadState: UploadState.INITIAL
 }
 export function imagesReducer(
     state = initialState,

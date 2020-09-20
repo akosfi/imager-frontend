@@ -1,27 +1,26 @@
 import ImagesActions from "../actions";
-import {Image} from "../../types";
 import {call, put} from "redux-saga/effects";
 import uploaderApi from "../../../config/uploaderApi";
-import {AxiosResponse} from "axios";
-import {get} from "lodash";
+import {UploadState} from "../types";
 
 
 function* uploadImageSaga({payload: {image}}: ReturnType<typeof ImagesActions.uploadImage>) {
     try {
+        yield put(ImagesActions.setUploadState(UploadState.UPLOADING));
+        const imageFormWrapper = new FormData();
+        imageFormWrapper.append("file", image);
 
-        type ReturnType = AxiosResponse<Image>;
-        const uploadResult: ReturnType = yield call(uploaderApi.post, "/api/images/", {
-            image
+        const {data: {imageResult}} = yield call(uploaderApi.post, "/images/", imageFormWrapper, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
         });
 
-        const uploadedImage: Image = get(uploadResult, "data.image", null);
-        //TODO SNACKBAR ERROR
-        if(!image) return;
-
-        yield put(ImagesActions.addImage(uploadedImage));
+        yield put(ImagesActions.addImage(imageResult));
+        yield put(ImagesActions.setUploadState(UploadState.UPLOADED));
     }
     catch(e) {
-
+        console.log(e);
     }
 
 }

@@ -28,7 +28,7 @@ const DragAndDropInput: FC<Props> = ({uploadImages, uploadState}) => {
             return;
         }
         const file: File = files[0];
-        //uploadImages(file);
+        uploadImages(file);
     }
 
 
