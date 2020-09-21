@@ -1,4 +1,5 @@
-import {User, UsersConstants} from "./types";
+import {UsersConstants} from "./types";
+import {User} from "../types";
 
 
 const fetchLoggedInUser = () => ({type: UsersConstants.FETCH_LOGGED_IN_USER});

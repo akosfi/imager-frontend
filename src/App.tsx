@@ -1,10 +1,8 @@
 import React, {FC, memo, useEffect} from 'react';
 import {
     BrowserRouter as Router,
-    Route,
 } from "react-router-dom";
 import "./App.scss";
-import axios from "axios";
 
 import HomePage from "./components/pages/home_page/HomePage";
 import Header from "./components/common/header/Header";
@@ -13,10 +11,10 @@ import UsersActions from "./redux/users/actions";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 import {setAuthorizationHeader, setJWTRefreshTimeout} from "./utils/auth/jwt";
 import {StoreState} from "./redux/rootReducer";
-import {User} from "./redux/users/types";
 import {getIsUserLoggedIn, getUser} from "./redux/users/selectors";
 import PrivateRoute from "./components/common/private_route/PrivateRoute";
 import SignUpPage from "./components/pages/sign_up_page/SignUpPage";
+import {User} from "./redux/types";
 
 type StateProps = {
     user: User | null;

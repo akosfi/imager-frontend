@@ -1,11 +1,11 @@
 import * as React from "react";
 import {FC, memo} from "react";
 import {StoreState} from "../../../redux/rootReducer";
-import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
+import {connect, MapStateToProps} from "react-redux";
 import Button from "../button/Button";
 import {Link} from "react-router-dom";
 import {getIsUserLoggedIn, getUser} from "../../../redux/users/selectors";
-import {User} from "../../../redux/users/types";
+import {User} from "../../../redux/types";
 
 const css = require("./Header.module.scss");
 

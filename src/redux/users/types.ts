@@ -1,7 +1,4 @@
-export type User = {
-    email: string;
-    id: string;
-}
+import {User} from "../types";
 
 export enum UsersConstants {
     LOAD_USER = "USER/LOAD_USER",

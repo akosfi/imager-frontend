@@ -1,5 +1,6 @@
 import * as React from "react";
 import {FC, memo} from "react";
+import getImageUrl from "../../../../../utils/getImageUrl";
 
 const css = require("./ImageContainerItem.module.scss");
 
@@ -14,7 +15,7 @@ const ImageContainerItem: FC<Props> = ({url}) => {
     return (
         <div className={css["ImageContainerItem"]}>
             <div className={css["wrapper"]}>
-                <img src={url} alt=""/>
+                <img src={getImageUrl(url)} alt=""/>
             </div>
         </div>
     );
