@@ -33,6 +33,12 @@ export function imagesReducer(
                 ...state,
                 uploadErrors: action.payload.errors
             }
+
+
+        case ImagesConstants.CLEAR_RESOURCE_STATE:
+            return {
+                ...initialState
+            }
         default:
             return state
     }

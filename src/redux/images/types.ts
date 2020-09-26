@@ -1,6 +1,7 @@
 import {Image} from "../types";
 
 export enum ImagesConstants {
+    CLEAR_RESOURCE_STATE = "IMAGES/CLEAR_RESOURCE_STATE",
     LOAD_IMAGES = "IMAGES/LOAD_IMAGES",
     FETCH_IMAGES = "IMAGES/FETCH_IMAGES",
     UPLOAD_IMAGE = "IMAGES/UPLOAD_IMAGE",

@@ -8,6 +8,8 @@ const loadImages = (images: Image[]) => ({
     }
 });
 
+const clearResourceState = () => ({type: ImagesConstants.CLEAR_RESOURCE_STATE});
+
 const fetchImages = () => ({type: ImagesConstants.FETCH_IMAGES});
 
 const uploadImage = (image: File) => ({type: ImagesConstants.UPLOAD_IMAGE, payload: {image}});
@@ -25,7 +27,8 @@ const ImagesActions = {
     uploadImage,
     addImage,
     setUploadState,
-    setUploadErrors
+    setUploadErrors,
+    clearResourceState
 }
 
 export default ImagesActions;
