@@ -16,13 +16,16 @@ const addImage = (image: Image) => ({type: ImagesConstants.ADD_IMAGE, payload: {
 
 const setUploadState = (uploadState: UploadState) => ({type: ImagesConstants.SET_UPLOAD_STATE, payload: {uploadState}});
 
+const setUploadErrors = (errors: string[]) => ({type: ImagesConstants.SET_UPLOAD_ERRORS, payload: {errors}});
+
 
 const ImagesActions = {
     loadImages,
     fetchImages,
     uploadImage,
     addImage,
-    setUploadState
+    setUploadState,
+    setUploadErrors
 }
 
 export default ImagesActions;

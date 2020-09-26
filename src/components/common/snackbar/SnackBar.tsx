@@ -23,7 +23,7 @@ type DispatchProps = {
 
 type OwnProps = {
     title: string;
-    icon: SnackBarIconType;
+    icon?: SnackBarIconType;
     type: SnackBarType;
 }
 

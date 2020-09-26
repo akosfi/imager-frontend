@@ -8,7 +8,9 @@ import {Image} from "../../types";
 
 function* uploadImageSaga({payload: {image: _image}}: ReturnType<typeof ImagesActions.uploadImage>) {
     try {
+        yield put(ImagesActions.setUploadErrors([]));
         yield put(ImagesActions.setUploadState(UploadState.UPLOADING));
+
         const imageFormWrapper = new FormData();
         imageFormWrapper.append("file", _image);
 
@@ -25,6 +27,10 @@ function* uploadImageSaga({payload: {image: _image}}: ReturnType<typeof ImagesAc
     }
     catch(e) {
         console.log(e);
+        const error = get(e, "error", "Upload failed!");
+        yield put(ImagesActions.setUploadErrors([error]))
+    } finally {
+        yield put(ImagesActions.setUploadState(UploadState.UPLOADED));
     }
 
 }

@@ -6,6 +6,7 @@ export enum ImagesConstants {
     UPLOAD_IMAGE = "IMAGES/UPLOAD_IMAGE",
     ADD_IMAGE = "IMAGES/ADD_IMAGE",
     SET_UPLOAD_STATE = "IMAGES/SET_UPLOAD_STATE",
+    SET_UPLOAD_ERRORS = "IMAGES/SET_UPLOAD_ERRORS",
 }
 
 export enum UploadState {
@@ -16,5 +17,6 @@ export enum UploadState {
 
 export type ImagesState = {
     images: Image[],
-    uploadState: UploadState
+    uploadState: UploadState,
+    uploadErrors: string[]
 }

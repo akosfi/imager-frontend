@@ -2,7 +2,8 @@ import {ImagesConstants, ImagesState, UploadState} from "./types";
 
 export const initialState: ImagesState = {
     images: [],
-    uploadState: UploadState.INITIAL
+    uploadState: UploadState.INITIAL,
+    uploadErrors: []
 }
 export function imagesReducer(
     state = initialState,
@@ -25,6 +26,12 @@ export function imagesReducer(
             return {
                 ...state,
                 uploadState: action.payload.uploadState
+            }
+
+        case ImagesConstants.SET_UPLOAD_ERRORS:
+            return {
+                ...state,
+                uploadErrors: action.payload.errors
             }
         default:
             return state

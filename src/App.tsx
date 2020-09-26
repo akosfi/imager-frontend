@@ -1,6 +1,6 @@
 import React, {FC, memo, useEffect} from 'react';
 import {
-    BrowserRouter as Router,
+    BrowserRouter as Router
 } from "react-router-dom";
 import "./App.scss";
 
