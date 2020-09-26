@@ -2,7 +2,9 @@ import {UsersConstants, UsersState} from "./types";
 
 export const initialState: UsersState = {
     user: null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    registrationErrors: [],
+    loginErrors: []
 }
 export function usersReducer(
     state = initialState,
@@ -19,6 +21,18 @@ export function usersReducer(
             return {
                 ...state,
                 isUserLoggedIn: action.payload.loggedIn
+            }
+
+        case UsersConstants.SET_REGISTRATION_ERRORS:
+            return {
+                ...state,
+                registrationErrors: action.payload.errors
+            }
+
+        case UsersConstants.SET_LOGIN_ERRORS:
+            return {
+                ...state,
+                loginErrors: action.payload.errors
             }
         default:
             return state

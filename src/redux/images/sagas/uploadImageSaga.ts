@@ -27,7 +27,7 @@ function* uploadImageSaga({payload: {image: _image}}: ReturnType<typeof ImagesAc
     }
     catch(e) {
         console.log(e);
-        const error = get(e, "error", "Upload failed!");
+        const error = get(e, "response.data.error", "Upload failed!");
         yield put(ImagesActions.setUploadErrors([error]))
     } finally {
         yield put(ImagesActions.setUploadState(UploadState.UPLOADED));

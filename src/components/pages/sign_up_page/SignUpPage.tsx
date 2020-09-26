@@ -6,10 +6,14 @@ import UsersActions from "../../../redux/users/actions";
 import TextInput from "../../common/inputs/text_input/TextInput";
 import Button from "../../common/button/Button";
 import {Link} from "react-router-dom";
+import SnackBar, {SnackBarType} from "../../common/snackbar/SnackBar";
+import {getRegistrationErrors} from "../../../redux/users/selectors";
 
 const css = require("./SignUpPage.module.scss");
 
-type StateProps = {}
+type StateProps = {
+    errors: string[]
+}
 
 type DispatchProps = {
     registerUser: typeof UsersActions.registerUser;
@@ -17,16 +21,23 @@ type DispatchProps = {
 
 type Props = StateProps & DispatchProps;
 
-const SignUpPage: FC<Props> = ({registerUser}) => {
+const SignUpPage: FC<Props> = ({registerUser, errors}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatedPassword, setRepeatedPassword] = useState("");
 
     const handleRegistration = () => registerUser(email, password);
 
+    const renderRegistrationErrors = () => errors.length > 0 ? (
+        <section className={css["error-wrapper"]}>
+            {errors.map(error => <SnackBar title={error} type={SnackBarType.ERROR} />)}
+        </section>
+    ) : <></>;
+
     return (
         <div className={css["SignUpPage"]}>
             <div className={css["inner"]}>
+                {renderRegistrationErrors()}
                 <div className={css["input-wrapper"]}>
                     <TextInput
                         type={"text"}
@@ -66,7 +77,7 @@ const SignUpPage: FC<Props> = ({registerUser}) => {
 }
 
 const mapStateToProps: MapStateToProps<StateProps, {}, StoreState> = state => ({
-
+    errors: getRegistrationErrors(state)
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, {}> = {

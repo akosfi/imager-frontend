@@ -6,9 +6,13 @@ export enum UsersConstants {
     SET_IS_USER_LOGGED_IN = "USER/SET_IS_USER_LOGGED_IN",
     LOGIN_USER = "USER/LOGIN_USER",
     REGISTER_USER = "USER/REGISTER_USER",
+    SET_LOGIN_ERRORS = "USER/SET_LOGIN_ERRORS",
+    SET_REGISTRATION_ERRORS = "USER/SET_REGISTRATION_ERRORS",
 }
 
 export type UsersState = {
     user: User | null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    registrationErrors: string[];
+    loginErrors: string[];
 }

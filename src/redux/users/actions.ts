@@ -12,13 +12,20 @@ const loginUser = (email: string, password: string) => ({type: UsersConstants.LO
 
 const registerUser = (email: string, password: string) => ({type: UsersConstants.REGISTER_USER, payload: { email, password }});
 
+const setRegistrationErrors = (errors: string[]) => ({type: UsersConstants.SET_REGISTRATION_ERRORS, payload: { errors }});
+
+const setLoginErrors = (errors: string[]) => ({type: UsersConstants.SET_LOGIN_ERRORS, payload: { errors }});
+
+
 
 const UsersActions = {
     loadUser,
     setIsUsedLoggedIn,
     fetchLoggedInUser,
     loginUser,
-    registerUser
+    registerUser,
+    setRegistrationErrors,
+    setLoginErrors
 }
 
 export default UsersActions;

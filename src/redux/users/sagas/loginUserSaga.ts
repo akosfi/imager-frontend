@@ -3,8 +3,8 @@ import uploaderApi from "../../../config/uploaderApi";
 import {printSagaError} from "../../../utils/errors/printError";
 import {setJWTToken} from "../../../utils/auth/jwt";
 import fetchLoggedInUserSaga from "./fetchLoggedInUserSaga";
-import ImagesActions from "../../images/actions";
 import UsersActions from "../actions";
+import {get} from "lodash";
 
 function* loginUserSaga({payload: {email, password}}: ReturnType<typeof UsersActions.loginUser>) {
     try {
@@ -16,9 +16,12 @@ function* loginUserSaga({payload: {email, password}}: ReturnType<typeof UsersAct
         setJWTToken(token);
 
         yield call(fetchLoggedInUserSaga);
+        yield put(UsersActions.setLoginErrors([]));
     }
     catch(err){
         printSagaError(err);
+        const error = get(err, "response.data.error", null);
+        yield put(UsersActions.setLoginErrors(!!error ? [error] : []))
     }
 }
 

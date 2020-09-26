@@ -9,7 +9,6 @@ function* fetchImagesSaga() {
 
     const images: Image[] = orderBy(get(data, "images", []), ({createdAt}) => new Date(createdAt), "desc");
 
-
     yield put(ImagesActions.loadImages(images));
 }
 
