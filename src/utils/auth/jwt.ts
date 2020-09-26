@@ -23,4 +23,4 @@ export const refreshJWTToken = async () => {
     }
 }
 
-export const setJWTRefreshTimeout = () => setInterval(async () => await refreshJWTToken(), 500000);
+export const setJWTRefreshTimeout = () => setInterval(async () => await refreshJWTToken(), 60000);
