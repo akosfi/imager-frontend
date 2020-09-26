@@ -11,35 +11,6 @@
 
     .input-wrapper{
       margin-top: 24px;
-
-      input {
-        display: block;
-        height: 48px;
-        width: 100%;
-        padding: 0 24px;
-        color: gray;
-        border: 1px solid black;
-        border-radius: 30px;
-        box-sizing: border-box;
-      }
-
-      button {
-        padding: 0 24px;
-        height: 40px;
-        width: 100%;
-        display: block;
-        justify-content: center;
-        align-items: center;
-        border: 1.5px solid #FFFFFF;
-        border-radius: 8px;
-        background: #34295E;
-        cursor: pointer;
-
-        .title {
-          color: white;
-          font-weight: bold;
-        }
-      }
     }
   }
 

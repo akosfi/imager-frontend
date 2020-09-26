@@ -3,6 +3,9 @@ import {FC, memo, useState} from "react";
 import {StoreState} from "../../../redux/rootReducer";
 import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 import UsersActions from "../../../redux/users/actions";
+import TextInput from "../../common/inputs/text_input/TextInput";
+import Button from "../../common/button/Button";
+import {Link} from "react-router-dom";
 
 const css = require("./SignUpPage.module.scss");
 
@@ -17,6 +20,7 @@ type Props = StateProps & DispatchProps;
 const SignUpPage: FC<Props> = ({registerUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [repeatedPassword, setRepeatedPassword] = useState("");
 
     const handleRegistration = () => registerUser(email, password);
 
@@ -24,23 +28,37 @@ const SignUpPage: FC<Props> = ({registerUser}) => {
         <div className={css["SignUpPage"]}>
             <div className={css["inner"]}>
                 <div className={css["input-wrapper"]}>
-                    <input
-                        type="text"
+                    <TextInput
+                        type={"text"}
                         value={email}
-                        onChange={({target: {value}}) => setEmail(value)}
+                        setValue={(value) => setEmail(value)}
                         placeholder={"Email"}
                     />
                 </div>
                 <div className={css["input-wrapper"]}>
-                    <input
-                        type="password"
+                    <TextInput
+                        type={'password'}
                         value={password}
-                        onChange={({target: {value}}) => setPassword(value)}
+                        setValue={(value) => setPassword(value)}
                         placeholder={"Password"}
                     />
                 </div>
+
                 <div className={css["input-wrapper"]}>
-                    <button onClick={handleRegistration}><span className={css["title"]}>Sign Up</span></button>
+                    <TextInput
+                        type={'password'}
+                        value={repeatedPassword}
+                        setValue={(value) => setRepeatedPassword(value)}
+                        placeholder={"Repeat Password"}
+                    />
+                </div>
+                <div className={css["input-wrapper"]}>
+                    <Button title={"Sign Up"} onClick={handleRegistration} />
+                </div>
+                <div className={css["input-wrapper"]}>
+                    <Link to={"/sign-in"}>
+                        <Button title={"Sign In"} inverseColors={true} />
+                    </Link>
                 </div>
             </div>
         </div>

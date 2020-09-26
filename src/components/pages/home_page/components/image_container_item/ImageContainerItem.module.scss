@@ -1,8 +1,11 @@
 .ImageContainerItem {
   margin-bottom: 24px;
   .wrapper {
+    position: relative;
+
     img {
       max-width: 100%;
+      display: block;
     }
   }
 }

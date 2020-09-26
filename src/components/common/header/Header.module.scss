@@ -1,7 +1,7 @@
 .Header {
   height: 64px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 50% 50%;
   background: #34295E;
 
   .logo {
@@ -18,10 +18,14 @@
     }
   }
 
-  .button-container {
+  .header-content {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    .header-content-item {
+      margin-right: 24px;
+    }
   }
 
   .user-name {

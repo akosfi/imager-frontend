@@ -19,26 +19,35 @@ type Props = StateProps;
 const Header: FC<Props> = ({user, isUsedLoggedIn }) => {
 
     const isUserAuthenticated = isUsedLoggedIn && !!user;
+    const title = "IMAGERRR";
 
     return (
         <div className={css["Header"]}>
             <div className={css["logo"]}>
                 <Link to={"/"}>
-                    <span className={css["text"]}>IMAGERRR</span>
+                    <span className={css["text"]}>{title}</span>
                 </Link>
             </div>
-            <div className={css["button-container"]}>
+            <div className={css["header-content"]}>
                 {!isUserAuthenticated ?
                     <>
-                        <Link to={"/sign-in"}>
-                            <Button title={"Sign In"} />
-                        </Link>
-                        <Link to={"/sign-up"}>
-                            <Button title={"Sign Up"} />
-                        </Link>
+                        <div className={css["header-content-item"]}>
+                            <Link to={"/sign-in"}>
+                                <Button title={"Sign In"} />
+                            </Link>
+                        </div>
                     </>
                     :
-                    <><span className={css["user-name"]}>{user?.email}</span></>}
+                    <>
+                        <div className={css["header-content-item"]}>
+                            <span className={css["user-name"]}>{user?.email}</span>
+                        </div>
+                        <div className={css["header-content-item"]}>
+                            <Link to={"/sign-up"}>
+                                <Button title={"Sign Out"} />
+                            </Link>
+                        </div>
+                    </>}
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import {connect, MapDispatchToProps, MapStateToProps} from "react-redux";
 import TextInput from "../../common/inputs/text_input/TextInput";
 import Button from "../../common/button/Button";
 import UsersActions from "../../../redux/users/actions";
+import {Link} from "react-router-dom";
 
 const css = require("./SignInPage.module.scss");
 
@@ -26,23 +27,28 @@ const SignInPage: FC<Props> = ({loginUser}) => {
         <div className={css["SignInPage"]}>
             <div className={css["inner"]}>
                 <div className={css["input-wrapper"]}>
-                    <input
-                        type="text"
+                    <TextInput
+                        type={"text"}
                         value={email}
-                        onChange={({target: {value}}) => setEmail(value)}
+                        setValue={(value) => setEmail(value)}
                         placeholder={"Email"}
                     />
                 </div>
                 <div className={css["input-wrapper"]}>
-                    <input
-                        type="password"
+                    <TextInput
+                        type={'password'}
                         value={password}
-                        onChange={({target: {value}}) => setPassword(value)}
+                        setValue={(value) => setPassword(value)}
                         placeholder={"Password"}
                     />
                 </div>
                 <div className={css["input-wrapper"]}>
-                    <button onClick={handleLogin}><span className={css["title"]}>Sign In</span></button>
+                    <Button title={"Sign In"} onClick={handleLogin} />
+                </div>
+                <div className={css["input-wrapper"]}>
+                    <Link to={"/sign-up"}>
+                        <Button title={"Sign Up"} inverseColors={true} />
+                    </Link>
                 </div>
             </div>
         </div>
