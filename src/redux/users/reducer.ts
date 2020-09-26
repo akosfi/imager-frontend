@@ -34,6 +34,11 @@ export function usersReducer(
                 ...state,
                 loginErrors: action.payload.errors
             }
+
+        case UsersConstants.CLEAR_RESOURCE_STATE:
+            return {
+                ...initialState,
+            }
         default:
             return state
     }
