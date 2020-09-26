@@ -21,7 +21,6 @@ type Props = StateProps & DispatchProps;
 
 const DragAndDropInput: FC<Props> = ({uploadImages, uploadState}) => {
     const onFileUploadEvent = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log("runs");
         const input = event.target;
         if(!input.files) return;
         const files: FileList = input.files;

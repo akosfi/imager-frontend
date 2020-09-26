@@ -25,6 +25,8 @@ const ImageContainer: FC<Props> = ({fetchImages, images}) => {
         fetchImages();
     }, [fetchImages]);
 
+    useWindowResize();
+
     const renderImagesForColumn = (columnIndex: number, numberOfColumns: number) => {
         const filteredArray: Image[] = [];
 
