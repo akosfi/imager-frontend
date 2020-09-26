@@ -43,9 +43,7 @@ const Header: FC<Props> = ({user, isUsedLoggedIn }) => {
                             <span className={css["user-name"]}>{user?.email}</span>
                         </div>
                         <div className={css["header-content-item"]}>
-                            <Link to={"/sign-up"}>
-                                <Button title={"Sign Out"} />
-                            </Link>
+                            <Button title={"Sign Out"} />
                         </div>
                     </>}
             </div>
