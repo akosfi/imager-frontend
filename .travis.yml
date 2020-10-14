@@ -13,9 +13,6 @@ jobs:
     - stage: lint
       script:
         - docker run akosfi/imager-frontend npm run lint
-    - stage: test
-      script:
-        - docker run akosfi/imager-frontend npm run test
     - stage: deploy
       script:
         - docker run akosfi/imager-frontend npm run log
@@ -23,6 +20,5 @@ jobs:
 stages:
   - log
   - lint
-  - test
   - name: deploy
     if: (type = push AND branch IN (master, staging))
