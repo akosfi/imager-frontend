@@ -45,15 +45,19 @@
     "lint-fix": "./node_modules/.bin/eslint src/**/*.ts --fix"
   },
   "eslintConfig": {
-    "extends": ["react-app"],
+    "extends": [
+      "react-app"
+    ],
     "rules": {
       "additional-rule": "off"
     },
     "overrides": [
       {
-        "files": ["**/*.ts?(x)"],
+        "files": [
+          "**/*.ts?(x)"
+        ],
         "rules": {
-          "additional-typescript-only-rule": "off",
+          "additional-typescript-only-rule": "off"
         }
       }
     ]
