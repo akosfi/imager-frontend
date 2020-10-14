@@ -1,7 +1,7 @@
 export type Image = {
     url: string;
     createdAt: string;
-    id: Number;
+    id: number;
 }
 
 export type User = {

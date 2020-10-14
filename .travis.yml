@@ -1,0 +1,28 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t akosfi/imager-frontend .
+
+jobs:
+  include:
+    - stage: log
+      script:
+        - docker run akosfi/imager-frontend npm run log
+    - stage: lint
+      script:
+        - docker run akosfi/imager-frontend npm run lint
+    - stage: test
+      script:
+        - docker run akosfi/imager-frontend npm run test
+    - stage: deploy
+      script:
+        - docker run akosfi/imager-frontend npm run log
+
+stages:
+  - log
+  - lint
+  - test
+  - name: deploy
+    if: (type = push AND branch IN (master, staging))
