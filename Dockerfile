@@ -1,11 +1,17 @@
-FROM node:alpine
+FROM node:13.14.0-alpine as builder
 
-COPY package*.json ./
+WORKDIR /app
+
+COPY package*.json /app/
 
 RUN npm i
 
-COPY . .
+COPY ./ /app/
 
 RUN npm run build
 
-CMD npm run start:dev
+FROM nginx:1.15
+
+COPY --from=builder /app/build/ /usr/share/nginx/html
+
+COPY --from=builder /app/nginx.conf /
