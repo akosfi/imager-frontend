@@ -15,7 +15,7 @@ const ImageContainerItem: FC<Props> = ({url}) => {
     return (
         <div className={css["ImageContainerItem"]}>
             <div className={css["wrapper"]}>
-                <img src={getImageUrl(url)} alt=""/>
+                <img src={url} alt=""/>
             </div>
         </div>
     );

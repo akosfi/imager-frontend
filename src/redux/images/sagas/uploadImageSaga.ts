@@ -17,7 +17,8 @@ function* uploadImageSaga({payload: {image: _image}}: ReturnType<typeof ImagesAc
         const {data} = yield call(uploaderApi.post, "/images/", imageFormWrapper, {
             headers: {
                 'Content-Type': 'multipart/form-data'
-            }
+            },
+            timeout: 10000
         });
 
         const image: Image = get(data, "image", null);
