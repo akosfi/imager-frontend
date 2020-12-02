@@ -28,6 +28,7 @@ type DispatchProps = {
 type Props = StateProps & DispatchProps;
 
 const App: FC<Props> = ({fetchLoggedInUser, user, isUserLoggedIn}) => {
+    console.log("fake feature");
     useEffect(() => {
         setAuthorizationHeader();
         fetchLoggedInUser();
