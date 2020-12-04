@@ -1,7 +1,7 @@
 on: [pull_request]
-  #push:
-  #  branches:
-  #    - master
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
@@ -37,6 +37,15 @@ jobs:
           task-definition: task-definition.json
           container-name: imager-frontend
           image: ${{ steps.build-image.outputs.image }}
+
+      - name: Run this step on master
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: echo "Step should run on master"
+
+
+      - name: Run this step on staging
+        if: ${{ github.ref == 'refs/heads/staging' }}
+        run: echo "Step should run on staging"
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
