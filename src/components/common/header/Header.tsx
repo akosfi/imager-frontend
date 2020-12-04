@@ -24,7 +24,7 @@ type Props = StateProps & DispatchProps;
 const Header: FC<Props> = ({user, isUsedLoggedIn, logoutUser}) => {
 
     const isUserAuthenticated = isUsedLoggedIn && !!user;
-    const title = "IMAGERRR";
+    const title = "IMAGER";
 
     return (
         <div className={css["Header"]}>
