@@ -38,6 +38,10 @@ jobs:
           container-name: imager-frontend
           image: ${{ steps.build-image.outputs.image }}
 
+      - name: Run this step on master
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: echo "Step on master"
+
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
