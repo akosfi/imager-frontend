@@ -49,20 +49,20 @@ jobs:
           wait-for-service-stability: true
 
       - name: Deploy Amazon ECS task definition to staging cluster
-          run: echo "Step should run on master"
-          uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-          with:
-            task-definition: ${{ steps.task-def.outputs.task-definition }}
-            service: imager-staging-frontend-service
-            cluster: imager-staging
-            wait-for-service-stability: true
+        run: echo "Step should run on master"
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: imager-staging-frontend-service
+          cluster: imager-staging
+          wait-for-service-stability: true
 
       - name: Deploy Amazon ECS task definition to production cluster
-          run: echo "Step should run on master"
-          uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-          with:
-            task-definition: ${{ steps.task-def.outputs.task-definition }}
-            service: imager-production-frontend-service
-            cluster: imager-production
-            wait-for-service-stability: true
+        run: echo "Step should run on master"
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: imager-production-frontend-service
+          cluster: imager-production
+          wait-for-service-stability: true
 
