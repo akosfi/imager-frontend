@@ -40,7 +40,7 @@ jobs:
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition to dev cluster
-        run: echo "Step should run on master"
+        if: ${{ github.ref == 'refs/heads/master' }}
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
@@ -49,7 +49,7 @@ jobs:
           wait-for-service-stability: true
 
       - name: Deploy Amazon ECS task definition to staging cluster
-        run: echo "Step should run on master"
+        if: ${{ github.ref == 'refs/heads/staging' }}
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
@@ -58,7 +58,7 @@ jobs:
           wait-for-service-stability: true
 
       - name: Deploy Amazon ECS task definition to production cluster
-        run: echo "Step should run on master"
+        if: ${{ github.ref == 'refs/heads/production' }}
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
