@@ -42,6 +42,11 @@ jobs:
         if: ${{ github.ref == 'refs/heads/master' }}
         run: echo "Step on master"
 
+
+      - name: Run this step on staging
+        if: ${{ github.ref == 'refs/heads/staging' }}
+        run: echo "Step on staging"
+
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
