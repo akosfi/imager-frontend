@@ -1,4 +1,7 @@
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
@@ -27,6 +30,7 @@ jobs:
           docker build -t $DOCKER_HUB_REGISTRY/$DOCKER_HUB_REPOSITORY:$IMAGE_TAG .
           docker push $DOCKER_HUB_REGISTRY/$DOCKER_HUB_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::$DOCKER_HUB_REGISTRY/$DOCKER_HUB_REPOSITORY:$IMAGE_TAG"
+
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
@@ -35,19 +39,30 @@ jobs:
           container-name: imager-frontend
           image: ${{ steps.build-image.outputs.image }}
 
-      - name: Run this step on master
-        if: ${{ github.ref == 'refs/heads/master' }}
+      - name: Deploy Amazon ECS task definition to dev cluster
         run: echo "Step should run on master"
-
-
-      - name: Run this step on staging
-        if: ${{ github.ref == 'refs/heads/staging' }}
-        run: echo "Step should run on staging"
-
-      - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: imager-frontend-dev-service
-          cluster: imager
+          service: imager-dev-frontend-service
+          cluster: imager-dev
           wait-for-service-stability: true
+
+      - name: Deploy Amazon ECS task definition to staging cluster
+          run: echo "Step should run on master"
+          uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+          with:
+            task-definition: ${{ steps.task-def.outputs.task-definition }}
+            service: imager-staging-frontend-service
+            cluster: imager-staging
+            wait-for-service-stability: true
+
+      - name: Deploy Amazon ECS task definition to production cluster
+          run: echo "Step should run on master"
+          uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+          with:
+            task-definition: ${{ steps.task-def.outputs.task-definition }}
+            service: imager-production-frontend-service
+            cluster: imager-production
+            wait-for-service-stability: true
+
